@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10], n, i, key, low, high, mid, found = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter sorted array elements: ");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    low = 0;
+    high = n - 1;
+
+    while(low <= high)
+    {
+        mid = (low + high) / 2;
+
+        if(a[mid] == key)
+        {
+            found = 1;
+            break;
+        }
+        else if(a[mid] < key)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+
+    if(found == 1)
+        printf("Element found at position %d", mid + 1);
+    else
+        printf("Element not found");
+
+    return 0;
+}
